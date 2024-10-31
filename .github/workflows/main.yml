@@ -11,6 +11,10 @@ jobs:
 
       - name: Run docker-compose
         uses: hoverkraft-tech/compose-action@v2.0.1
+        env:
+          POSTGRES_DB: ${{POSTGRES_DB}}
+          POSTGRES_USER: ${{POSTGRES_USER}}
+          POSTGRES_PASSWORD: ${{POSTGRES_PASSWORD}}
 
       - name: Execute tests in the running services
         run: |
