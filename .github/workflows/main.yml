@@ -12,10 +12,10 @@ jobs:
       - name: Run docker-compose
         uses: hoverkraft-tech/compose-action@v2.0.1
         env:
-          POSTGRES_DB: "django_db"
-          POSTGRES_USER: "django_user"
-          POSTGRES_PASSWORD: "django_pass"
-
+          POSTGRES_DB: ${{ vars.POSTGRES_DB }}
+          POSTGRES_USER: ${{ vars.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ vars.POSTGRES_PASSWORD }}
+          
       - name: Execute tests in the running services
         run: |
           docker compose exec web pytest
